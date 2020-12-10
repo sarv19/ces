@@ -84,38 +84,38 @@
             </div>
         </div>
         <div class="search-map">
-            <div id="tanger" class="city tanger blink_me"></div>
-            <div id="tunic" class="city tunic"></div>
-            <div id="dekanariskeøer" class="city dekanariskeøer "></div>
-            <div id="cairo" class="city cairo"></div>
-            <div id="tripoli" class="city tripoli"></div>
-            <div id="suakin" class="city suakin"></div>
-            <div id="kapguardafui" class="city kapguardafui"></div>
-            <div id="addisadeba" class="city addisadeba"></div>
-            <div id="wadai" class="city wadai"></div>
-            <div id="omdurman" class="city omdurman"></div>
-            <div id="sahara" class="city sahara"></div>
-            <div id="timbuktu" class="city timbuktu"></div>
-            <div id="dakar" class="city dakar"></div>
-            <div id="marrakesh" class="city marrakesh"></div>
-            <div id="sierraleone" class="city sierraleone"></div>
-            <div id="guldkysten" class="city guldkysten"></div>
-            <div id="slavekysten" class="city slavekysten"></div>
-            <div id="darfur" class="city darfur"></div>
-            <div id="bahrelghazal" class="city bahrelghazal"></div>
-            <div id="victoria-søen" class="city victoria-søen"></div>
-            <div id="zanzibar" class="city zanzibar"></div>
-            <div id="amatave" class="city amatave"></div>
-            <div id="kapstmarie" class="city kapstmarie"></div>
-            <div id="dragebjerget" class="city dragebjerget"></div>
-            <div id="kapstaden" class="city kapstaden"></div>
-            <div id="hvalbugten" class="city hvalbugten"></div>
-            <div id="luanda" class="city luanda"></div>
-            <div id="sthelena" class="city sthelena"></div>
-            <div id="congo" class="city congo"></div>
-            <div id="kabalo" class="city kabalo"></div>
-            <div id="mocambique" class="city mocambique"></div>
-            <div id="victoriafaldene" class="city victoriafaldene"></div>
+            <div id="tanger" class="cityDot city tanger"></div>
+            <div id="dekanariskeøer" class="cityDot city dekanariskeøer "></div>
+            <div id="cairo" class="cityDot city cairo"></div>
+            <div id="tripoli" class="cityDot city tripoli"></div>
+            <div id="tunis" class="cityDot city tunis"></div>
+            <div id="suakin" class="cityDot city suakin"></div>
+            <div id="kapguardafui" class="cityDot city kapguardafui"></div>
+            <div id="addisadeba" class="cityDot city addisadeba"></div>
+            <div id="wadai" class="cityDot city wadai"></div>
+            <div id="omdurman" class="cityDot city omdurman"></div>
+            <div id="sahara" class="cityDot city sahara"></div>
+            <div id="timbuktu" class="cityDot city timbuktu"></div>
+            <div id="dakar" class="cityDot city dakar"></div>
+            <div id="marrakesh" class="cityDot city marrakesh"></div>
+            <div id="sierraleone" class="cityDot city sierraleone"></div>
+            <div id="guldkysten" class="cityDot city guldkysten"></div>
+            <div id="slavekysten" class="cityDot city slavekysten"></div>
+            <div id="darfur" class="cityDot city darfur"></div>
+            <div id="bahrelghazal" class="cityDot city bahrelghazal"></div>
+            <div id="victoria-søen" class="cityDot city victoria-søen"></div>
+            <div id="zanzibar" class="cityDot city zanzibar"></div>
+            <div id="amatave" class="cityDot city amatave"></div>
+            <div id="kapstmarie" class="cityDot city kapstmarie"></div>
+            <div id="dragebjerget" class="cityDot city dragebjerget"></div>
+            <div id="kapstaden" class="cityDot city kapstaden"></div>
+            <div id="hvalbugten" class="cityDot city hvalbugten"></div>
+            <div id="luanda" class="cityDot city luanda"></div>
+            <div id="sthelena" class="cityDot city sthelena"></div>
+            <div id="congo" class="cityDot city congo"></div>
+            <div id="kabalo" class="cityDot city kabalo"></div>
+            <div id="mocambique" class="cityDot city mocambique"></div>
+            <div id="victoriafaldene" class="cityDot city victoriafaldene"></div>
 
             <img src="./map.jpg" class="map-img">
         </div>
@@ -134,11 +134,20 @@
         var choosenBreadth = document.getElementById('breadth')
         var findBtn = document.getElementById('find-btn-submit')
         var warning = document.getElementById('search-warning')
+        var pickupList1 = '<option selected="" value="" disabled>Choose a pickup city</option>'
+        var pickupList2 = '<option selected="" value="" disabled>Choose a destination city</option>'
+        var options = document.getElementsByClassName("listItem")
+        var cityDot = document.getElementsByClassName("cityDot")
+        console.log(cityDot[0], cityValue.length)
 
         for (var i = 0; i < cityLabel.length; i++) {
-            pickupPlace.options.add(new Option(cityLabel[i], cityValue[i]))
-            destinationPlace.options.add(new Option(cityLabel[i], cityValue[i]))
+            pickupList1 += '<option value="' + cityValue[i] + '" class="listItem"/>' + cityLabel[i] + '</option>'
+            pickupList2 += '<option value="' + cityValue[i] + '" class="listItem"/>' + cityLabel[i] + '</option>'
+            // pickupPlace.options.add(new Option(cityLabel[i], cityValue[i]))
+            // destinationPlace.options.add(new Option(cityLabel[i], cityValue[i]))
         }
+        pickupPlace.innerHTML = pickupList1
+        destinationPlace.innerHTML = pickupList2
 
         choosenWeight.onkeydown = function (e) {
             if (!((e.keyCode > 95 && e.keyCode < 106)
@@ -162,6 +171,15 @@
             return false
         }
         function changeInput() {
+            if (pickupPlace.value) {
+                let index = cityValue.findIndex(item => item == pickupPlace.value)
+                console.log("check index", index)
+                if (index >= 0) {
+                    cityDot[index].classList.toggle("blink_me");
+
+                }
+            }
+
             if (pickupPlace.value == destinationPlace.value) {
                 // warning.classList.add("diplay-warning")
                 warning.innerHTML = "Pickup and destination must be different"
@@ -192,7 +210,7 @@
         var i;
 
         for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function () {
+            coll[i].addEventListener("click", () => {
                 this.classList.toggle("active");
                 var content = this.nextElementSibling;
                 if (content.style.maxHeight) {
@@ -202,6 +220,19 @@
                 }
             });
         }
+
+
+
+        // console.log("check where ", cityDot)
+        // var j
+
+        // for (j = 0; j < cityDot.length; j++) {
+        //     console.log("check", options[j])
+        //     options[j].addEventListener("mousedown", () => {
+        //         console.log("anything?")
+        //         cityDot[j].classList.toggle("blink_me");
+        //     })
+        // }
     </script>
 
 </body>
