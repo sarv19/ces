@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="login.css">
     <title>Search Route - Oceanic Airlines</title>
+    <link rel="icon" href="./favicon.png">
 </head>
 
 <body class="background">
@@ -19,6 +20,189 @@
             </div>
         </div>
     </div>
+
+    <div class="search-body">
+        <div class="search-form">
+            <div class="search-field">
+                <form action="searchRoute.html">
+                    <label for="pickup" class="search-label">Pickup *</label>
+                    <select name="pickup" id="pickup" class="search-input" onchange="changeInput()" required>
+                        <option selected="" value="" disabled>Choose a pickup city</option>
+                    </select>
+
+                    <label for="destination" class="search-label">Destination *</label>
+                    <select id="destination" name="destination" class="search-input" onchange="changeInput()" required>
+                        <option selected="" value="" disabled>Choose a destination city</option>
+                    </select>
+
+                    <label for="weight" class="search-label">Weight *</label>
+                    <input type="number" id="weight" name="weight" class="search-input" required min="0" max="20"
+                        title="Eight or more characters" onchange="changeInput()">
+                    <div class="input-field-group">
+                        <div>
+                            <label for="height" class="search-label">Height *</label>
+                            <input type="number" id="height" name="height" class="search-input" required max="200"
+                                min="0" onchange="changeInput()">
+                        </div>
+                        <div class="search-middle">
+                            <label for="depth" class="search-label">Depth *</label>
+                            <input type="number" id="depth" name="depth" class="search-input" required max="200" min="0"
+                                onchange="changeInput()">
+                        </div>
+                        <div>
+                            <label for="breadth" class="search-label">Breadth *</label>
+                            <input type="number" id="breadth" name="breadth" class="search-input" required max="200"
+                                min="0" onchange="changeInput()">
+                        </div>
+                    </div>
+
+                    <div class="search-warning" id="search-warning"></div>
+
+                    <div class="submit-btn find"><input type="submit" value="Find" id="find-btn-submit" class="find-btn"
+                            disabled></div>
+                </form>
+            </div>
+            <button class="collapsible">Cheapest - <span id="money-cheapest">24$</span> - <span
+                    id="time-cheapest">32h</span></button>
+            <div class="content">
+                <div name="sub-route-cheapest">Tanger to Marratesh - Indian</div>
+                <div name="sub-route-cheapest">Marratesh to Dacar - Indian</div>
+                <div name="sub-route-cheapest">Dacar - Seiora Leone - Indian </div>
+
+            </div>
+            <button class="collapsible">Fastest - <span id="money-fastest">24$</span> - <span
+                    id="time-fastest">12h</span></button>
+            <div class="content">
+                <div name="sub-route-fastest">Tanger to Marratesh - Indian</div>
+                <div name="sub-route-fastest">Marratesh to Dacar - Indian</div>
+                <div name="sub-route-fastest">Dacar - Seiora Leone - Indian </div>
+            </div>
+            <button class="collapsible">Internal - <span id="money-internal">24$</span> - <span
+                    id="time-internal">16h</span></button>
+            <div class="content">
+                <div name="sub-route-internal">Tanger to Marratesh - Indian</div>
+            </div>
+        </div>
+        <div class="search-map">
+            <div id="tanger" class="city tanger blink_me"></div>
+            <div id="tunic" class="city tunic"></div>
+            <div id="dekanariskeøer" class="city dekanariskeøer "></div>
+            <div id="cairo" class="city cairo"></div>
+            <div id="tripoli" class="city tripoli"></div>
+            <div id="suakin" class="city suakin"></div>
+            <div id="kapguardafui" class="city kapguardafui"></div>
+            <div id="addisadeba" class="city addisadeba"></div>
+            <div id="wadai" class="city wadai"></div>
+            <div id="omdurman" class="city omdurman"></div>
+            <div id="sahara" class="city sahara"></div>
+            <div id="timbuktu" class="city timbuktu"></div>
+            <div id="dakar" class="city dakar"></div>
+            <div id="marrakesh" class="city marrakesh"></div>
+            <div id="sierraleone" class="city sierraleone"></div>
+            <div id="guldkysten" class="city guldkysten"></div>
+            <div id="slavekysten" class="city slavekysten"></div>
+            <div id="darfur" class="city darfur"></div>
+            <div id="bahrelghazal" class="city bahrelghazal"></div>
+            <div id="victoria-søen" class="city victoria-søen"></div>
+            <div id="zanzibar" class="city zanzibar"></div>
+            <div id="amatave" class="city amatave"></div>
+            <div id="kapstmarie" class="city kapstmarie"></div>
+            <div id="dragebjerget" class="city dragebjerget"></div>
+            <div id="kapstaden" class="city kapstaden"></div>
+            <div id="hvalbugten" class="city hvalbugten"></div>
+            <div id="luanda" class="city luanda"></div>
+            <div id="sthelena" class="city sthelena"></div>
+            <div id="congo" class="city congo"></div>
+            <div id="kabalo" class="city kabalo"></div>
+            <div id="mocambique" class="city mocambique"></div>
+            <div id="victoriafaldene" class="city victoriafaldene"></div>
+
+            <img src="./map.jpg" class="map-img">
+        </div>
+
+
+    </div>
+
+    <script>
+        var cityLabel = ['Tanger', 'De Kanariske Øer', 'Cairo', 'Tripoli', 'Tunis', 'Suakin', 'Kap Guardafui', 'Addis Adeba', 'Wadai', 'Omdurman', 'Sahara', 'Timbuktu', 'Dakar', 'Marrakesh', 'Sierra Leone', 'Guld Kysten', 'Slave Kysten', 'Darfur', 'Bahrel Ghazal', 'Victoria-Søen', 'Zanzibar', 'Amatave', 'Kap St. Marie', 'Dragebjerget', 'Kapstaden', 'Hvalbugten', 'Luanda', 'St. Helena', 'Congo', 'Kabalo', 'Mocambique', 'Victoria Faldene']
+        var cityValue = ['tanger', 'de kanariske øer', 'cairo', 'tripoli', 'tunis', 'suakin', 'kap guardafui', 'addis adeba', 'wadai', 'omdurman', 'sahara', 'timbuktu', 'dakar', 'marrakesh', 'sierra leone', 'guld kysten', 'slave kysten', 'darfur', 'bahrel ghazal', 'victoria-søen', 'zanzibar', 'amatave', 'kap st. marie', 'dragebjerget', 'kapstaden', 'hvalbugten', 'luanda', 'st. helena', 'congo', 'kabalo', 'mocambique', 'victoria faldene']
+        var pickupPlace = document.getElementById('pickup')
+        var destinationPlace = document.getElementById('destination')
+        var choosenWeight = document.getElementById('weight')
+        var choosenHeight = document.getElementById('height')
+        var choosenDepth = document.getElementById('depth')
+        var choosenBreadth = document.getElementById('breadth')
+        var findBtn = document.getElementById('find-btn-submit')
+        var warning = document.getElementById('search-warning')
+
+        for (var i = 0; i < cityLabel.length; i++) {
+            pickupPlace.options.add(new Option(cityLabel[i], cityValue[i]))
+            destinationPlace.options.add(new Option(cityLabel[i], cityValue[i]))
+        }
+
+        choosenWeight.onkeydown = function (e) {
+            if (!((e.keyCode > 95 && e.keyCode < 106)
+                || (e.keyCode > 47 && e.keyCode < 58)
+                || e.keyCode == 8)) {
+                return false;
+            }
+        }
+
+        function validateSize(item) {
+            if (item && (item <= 0 || item > 200)) {
+                return true
+            }
+            return false
+        }
+
+        function validateWeight(item) {
+            if (item && (item <= 0 || item > 20)) {
+                return true
+            }
+            return false
+        }
+        function changeInput() {
+            if (pickupPlace.value == destinationPlace.value) {
+                // warning.classList.add("diplay-warning")
+                warning.innerHTML = "Pickup and destination must be different"
+            } else if (validateWeight(choosenWeight.value)) {
+                warning.innerHTML = "Weight has to be greater than 0 and less than 20"
+            } else if (validateSize(choosenHeight.value)) {
+                warning.innerHTML = "Value of height must be greater than 0 and less than 200"
+            } else if (validateSize(choosenDepth.value)) {
+                warning.innerHTML = "Value of depth must be greater than 0 and less than 200"
+            } else if (validateSize(choosenBreadth.value)) {
+                warning.innerHTML = "Value of breadth must be greater than 0 and less than 200"
+            } else {
+                warning.innerHTML = ""
+            }
+
+            if (pickupPlace.value !== destinationPlace.value &&
+                choosenWeight.value && choosenHeight.value && choosenDepth.value && choosenBreadth.value &&
+                !validateWeight(choosenWeight.value) && !validateSize(choosenHeight.value) && !validateSize(choosenDepth.value) && !validateSize(choosenBreadth.value)) {
+                findBtn.classList.add('find-btn-active')
+                findBtn.disabled = false
+            } else {
+                findBtn.classList.remove('find-btn-active')
+                findBtn.disabled = true
+            }
+        }
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
 
 </body>
 

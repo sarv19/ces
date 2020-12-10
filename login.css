@@ -85,6 +85,7 @@ body {
 
 input[type="text"],
 input[type="password"],
+input[type="number"],
 select {
   width: 100%;
   padding: 12px 20px;
@@ -270,4 +271,291 @@ a {
 
 .pagi-icon-right {
   cursor: pointer;
+}
+
+.search-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-form {
+  flex: 3;
+  /* background-color: red; */
+  padding: 20px 70px;
+}
+
+.search-map {
+  flex: 2;
+  /* background-color: #48606c; */
+}
+
+.search-field {
+  width: 70%;
+}
+
+.search-label {
+  font-size: 13px;
+}
+
+input.search-input {
+  margin: 5px 0;
+  padding: 6px 10px;
+}
+
+.input-field-group {
+  display: flex;
+}
+
+.search-warning {
+  /* display: none; */
+  color: #ef5858;
+}
+
+.search-middle {
+  margin: 0 10px;
+}
+
+.find {
+  justify-content: flex-end;
+}
+
+input.find-btn {
+  opacity: 0.7;
+  cursor: not-allowed;
+  width: 24%;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+input.find-btn-active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.collapsible {
+  background: none;
+  /* color: white; */
+  cursor: pointer;
+  padding: 18px 0;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  color: #354d5a;
+  font-family: "High Tower Text";
+  font-size: 20px;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #d4d4d7;
+}
+
+.collapsible:after {
+  content: "\002B";
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: #354d5a;
+  opacity: 0.66;
+}
+
+.map-img {
+  width: 300px;
+  position: relative;
+}
+
+.blink_me {
+  background-color: #d4d4d7;
+  animation: blinker 0.8s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.city {
+  position: absolute;
+  z-index: 50;
+  background-color: aqua;
+  width: 11px;
+  height: 11px;
+  /* height: 1.5rem; */
+  border-radius: 50%;
+}
+
+.tanger {
+  margin-top: 90px;
+  margin-left: 77px;
+}
+
+.tunic {
+  margin-top: 104px;
+  margin-left: 120px;
+}
+
+.dekanariskeøer {
+  margin-top: 116px;
+  margin-left: 34px;
+}
+
+.cairo {
+  margin-top: 121px;
+  margin-left: 187px;
+}
+
+.tripoli {
+  margin-top: 124px;
+  margin-left: 136px;
+}
+.suakin {
+  margin-top: 170px;
+  margin-left: 220px;
+}
+
+.kapguardafui {
+  margin-top: 194px;
+  margin-left: 270px;
+}
+
+.addisadeba {
+  margin-top: 200px;
+  margin-left: 237px;
+}
+
+.wadai {
+  margin-top: 184px;
+  margin-left: 132px;
+}
+
+.omdurman {
+  margin-top: 162px;
+  margin-left: 179px;
+}
+
+.sahara {
+  margin-top: 148px;
+  margin-left: 94px;
+}
+
+.timbuktu {
+  margin-top: 179px;
+  margin-left: 78px;
+}
+
+.dakar {
+  margin-top: 172px;
+  margin-left: 20px;
+}
+
+.marrakesh {
+  margin-top: 129px;
+  margin-left: 54px;
+}
+
+.sierraleone {
+  margin-top: 209px;
+  margin-left: 27px;
+}
+
+.guldkysten {
+  margin-top: 224px;
+  margin-left: 65px;
+}
+
+.slavekysten {
+  margin-top: 223px;
+  margin-left: 106px;
+}
+
+.darfur {
+  margin-top: 201px;
+  margin-left: 163px;
+}
+
+.bahrelghazal {
+  margin-top: 221px;
+  margin-left: 183px;
+}
+
+.victoria-søen {
+  margin-top: 229px;
+  margin-left: 204px;
+}
+
+.zanzibar {
+  margin-top: 245px;
+  margin-left: 237px;
+}
+
+.amatave {
+  margin-top: 300px;
+  margin-left: 268px;
+}
+
+.kapstmarie {
+  margin-top: 330px;
+  margin-left: 251px;
+}
+
+.dragebjerget {
+  margin-top: 328px;
+  margin-left: 208px;
+}
+
+.kapstaden {
+  margin-top: 365px;
+  margin-left: 163px;
+}
+
+.hvalbugten {
+  margin-top: 327px;
+  margin-left: 143px;
+}
+
+.luanda {
+  margin-top: 277px;
+  margin-left: 137px;
+}
+
+.sthelena {
+  margin-top: 292px;
+  margin-left: 37px;
+}
+.congo {
+  margin-top: 249px;
+  margin-left: 143px;
+}
+
+.kabalo {
+  margin-top: 257px;
+  margin-left: 179px;
+}
+
+.mocambique {
+  margin-top: 295px;
+  margin-left: 234px;
+}
+
+.victoriafaldene {
+  margin-top: 309px;
+  margin-left: 191px;
+}
+
+.diplay-warning {
+  display: inline;
 }
