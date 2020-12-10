@@ -1,0 +1,273 @@
+body {
+  background-image: url("background1.jpg");
+  margin: 0;
+  font-family: "High Tower Text";
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo-big {
+  width: 300px;
+}
+
+.logo-small {
+  width: 230px;
+}
+
+.login-header-right {
+  width: 500px;
+}
+
+.login-header-right-top {
+  height: 50px;
+  border: none;
+  border-bottom: solid 3px #48606c;
+}
+
+.login-header-right-bottom {
+  display: flex;
+  color: #48606c;
+}
+
+.display-tab {
+  margin-top: 15px;
+  padding: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: solid 1px #48606c;
+}
+
+.no-border-button {
+  margin-top: 15px;
+  padding: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.no-border-button2 {
+  margin-top: 15px;
+  padding: 3px;
+  padding-left: 0;
+  padding-right: 15px;
+}
+
+.noti {
+  position: relative;
+  display: inline-block;
+}
+
+.noti .badge {
+  position: absolute;
+  /* width: 20px; */
+  background-color: #95b8cb;
+  border-radius: 50%;
+  top: -8px;
+  right: 2px;
+  padding: 1px 8px;
+}
+
+.badge {
+  text-align: center;
+  align-content: center;
+  color: white;
+}
+
+.no-border-button:hover {
+  cursor: pointer;
+}
+
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: none;
+}
+.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="submit"] {
+  font-family: "High Tower Text";
+  width: 40%;
+  background-color: #354d5a;
+  color: white;
+  padding: 14px 20px;
+  margin: 30px 0;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+}
+input::placeholder {
+  color: red;
+}
+
+.login-form {
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+}
+label {
+  color: #9ba6ac;
+}
+
+.login-separator {
+  display: flex;
+  justify-content: center;
+  color: #48606c;
+}
+
+.login-separator-inside {
+  width: 25%;
+  display: flex;
+}
+
+.login-hr {
+  width: 100px;
+  color: #354d5a;
+  opacity: 0.5;
+}
+
+.login-signup-btn {
+  display: flex;
+  color: #48606c;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: #48606c;
+}
+
+.signup-warning {
+  display: none;
+  color: #1381bc;
+}
+
+.tab {
+  overflow: hidden;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: rgb(53, 77, 90, 0.3);
+  color: #354d5a;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  color: #354d5a;
+  padding: 20px 0;
+}
+.tablinks {
+  color: rgb(53, 77, 90, 0.53);
+  font-family: "High Tower Text";
+}
+
+.admin-body {
+  padding: 2% 7%;
+}
+
+.pending-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  height: 30px;
+}
+
+.pending-list-item-email {
+  align-items: center;
+  display: flex;
+}
+
+.pending-list-item-btn {
+  width: 300px;
+  display: flex;
+}
+
+.pending-accept-btn {
+  background-color: #354d5a;
+  width: 80px;
+  height: 30px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #354d5a;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.pending-reject-btn {
+  border: solid 1px #354d5a;
+  width: 80px;
+  height: 30px;
+  color: #354d5a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accepted {
+  color: #1671a2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rejected {
+  color: #ef5858;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagi-icon-left {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.pagi-icon-right {
+  cursor: pointer;
+}
