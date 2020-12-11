@@ -23,14 +23,15 @@
     <div class="login-body">
         <div class="login-form">
             <form action="searchRoute.html">
-                <label for="fname">Email</label>
-                <input type="text" id="email" name="firstname">
+                <label for="fname">Email *</label>
+                <input title="Email must end with @oceanicairlines.com" required pattern=".+@oceanicairlines.com"
+                    type="text" id="email" name="firstname">
 
-                <label for="lname">Password</label>
-                <input type="password" id="password" name="lastname">
+                <label for="lname">Password *</label>
+                <input minlength="8" type="password" id="password" name="lastname">
 
-                <label for="lname">Re-type password</label>
-                <input type="password" id="password" name="lastname">
+                <label for="lname">Re-type password *</label>
+                <input minlength="8" type="password" id="password" name="lastname">
                 <div class="signup-warning" id="signup-warning">Request sign up successfully! Please wait for approval
                 </div>
 

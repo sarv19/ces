@@ -23,11 +23,12 @@
   <div class="login-body">
     <div class="login-form">
       <form action="searchRoute.html">
-        <label for="fname">Email</label>
-        <input type="text" id="email" name="firstname">
+        <label for="fname">Email *</label>
+        <input type="text" title="Email must end with @oceanicairlines.com" required pattern=".+@oceanicairlines.com"
+          id="email" name="firstname">
 
-        <label for="lname">Password</label>
-        <input type="password" id="password" name="lastname">
+        <label for="lname">Password *</label>
+        <input type="password" minlength="8" id="password" name="lastname" required>
 
         <div class="submit-btn"><input type="submit" value="Sign in"></div>
       </form>
@@ -44,6 +45,7 @@
   <div class="login-signup-btn">
     <div class="no-border-button"><a href="signup.html">Sign up</a></div>
   </div>
+
 </body>
 
 </html>
