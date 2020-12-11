@@ -391,7 +391,7 @@ input.find-btn-active {
 .city {
   position: absolute;
   z-index: 50;
-  background-color: aqua;
+  background-color: #0d8ace;
   width: 11px;
   height: 11px;
   /* height: 1.5rem; */

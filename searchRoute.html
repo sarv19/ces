@@ -124,6 +124,21 @@
     </div>
 
     <script>
+        var coll = document.getElementsByClassName("collapsible");
+        // var i;
+
+        for (let i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
         var cityLabel = ['Tanger', 'De Kanariske Øer', 'Cairo', 'Tripoli', 'Tunis', 'Suakin', 'Kap Guardafui', 'Addis Adeba', 'Wadai', 'Omdurman', 'Sahara', 'Timbuktu', 'Dakar', 'Marrakesh', 'Sierra Leone', 'Guld Kysten', 'Slave Kysten', 'Darfur', 'Bahrel Ghazal', 'Victoria-Søen', 'Zanzibar', 'Amatave', 'Kap St. Marie', 'Dragebjerget', 'Kapstaden', 'Hvalbugten', 'Luanda', 'St. Helena', 'Congo', 'Kabalo', 'Mocambique', 'Victoria Faldene']
         var cityValue = ['tanger', 'de kanariske øer', 'cairo', 'tripoli', 'tunis', 'suakin', 'kap guardafui', 'addis adeba', 'wadai', 'omdurman', 'sahara', 'timbuktu', 'dakar', 'marrakesh', 'sierra leone', 'guld kysten', 'slave kysten', 'darfur', 'bahrel ghazal', 'victoria-søen', 'zanzibar', 'amatave', 'kap st. marie', 'dragebjerget', 'kapstaden', 'hvalbugten', 'luanda', 'st. helena', 'congo', 'kabalo', 'mocambique', 'victoria faldene']
         var pickupPlace = document.getElementById('pickup')
@@ -138,7 +153,6 @@
         var pickupList2 = '<option selected="" value="" disabled>Choose a destination city</option>'
         var options = document.getElementsByClassName("listItem")
         var cityDot = document.getElementsByClassName("cityDot")
-        console.log(cityDot[0], cityValue.length)
 
         for (var i = 0; i < cityLabel.length; i++) {
             pickupList1 += '<option value="' + cityValue[i] + '" class="listItem"/>' + cityLabel[i] + '</option>'
@@ -171,12 +185,21 @@
             return false
         }
         function changeInput() {
-            if (pickupPlace.value) {
+            if (pickupPlace.value || destinationPlace.value) {
+                console.log(destinationPlace, "checkkkk")
                 let index = cityValue.findIndex(item => item == pickupPlace.value)
+                let index2 = cityValue.findIndex(item => item == destinationPlace.value)
                 console.log("check index", index)
                 if (index >= 0) {
-                    cityDot[index].classList.toggle("blink_me");
-
+                    cityDot[index].classList.add("blink_me");
+                }
+                if (index2 >= 0) {
+                    cityDot[index2].classList.add("blink_me")
+                }
+                for (let k = 0; k < cityDot.length; k++) {
+                    if (k != index && k != index2) {
+                        cityDot[k].classList.remove("blink_me")
+                    }
                 }
             }
 
@@ -206,33 +229,6 @@
             }
         }
 
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", () => {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        }
-
-
-
-        // console.log("check where ", cityDot)
-        // var j
-
-        // for (j = 0; j < cityDot.length; j++) {
-        //     console.log("check", options[j])
-        //     options[j].addEventListener("mousedown", () => {
-        //         console.log("anything?")
-        //         cityDot[j].classList.toggle("blink_me");
-        //     })
-        // }
     </script>
 
 </body>
